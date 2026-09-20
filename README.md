@@ -46,6 +46,17 @@ Después, hacé clic en cualquier cuadro de texto. La píldora aparece al lado d
 hacé clic en ella (o apretá **Ctrl+Shift+Y**) y elegí *Correct grammar*. Si primero
 seleccionás una parte del texto, se reescribe solo esa parte; si no, se envía todo el campo.
 
+### Probarlo rápido
+
+`demo.html` es un chat de mentira: trae un mensaje entrante fijo y un campo para
+responder. Serviló por http, porque las extensiones no corren en `file://` a menos que
+actives *Permitir acceso a URL de archivo*:
+
+```sh
+python3 -m http.server 8080
+# después abrí http://127.0.0.1:8080/demo.html
+```
+
 ## El proyecto completo
 
 Seis archivos de código fuente. No hay paso de compilación ni dependencias: todo es
