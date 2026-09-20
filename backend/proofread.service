@@ -1,0 +1,14 @@
+[Unit]
+Description=Proofread backend (grammar/rewrite over opencode)
+After=network-online.target
+
+[Service]
+Type=simple
+WorkingDirectory=%h/Projects/proofread/backend
+ExecStart=/usr/bin/node %h/Projects/proofread/backend/server.js
+Environment=PROOFREAD_PORT=8799
+Restart=on-failure
+RestartSec=2
+
+[Install]
+WantedBy=default.target

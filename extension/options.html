@@ -1,0 +1,60 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Proofread settings</title>
+<style>
+  :root {
+    color-scheme: light dark;
+    --bg: #fff; --fg: #18181b; --muted: #71717a; --line: #e4e4e7; --accent: #1d4ed8;
+  }
+  @media (prefers-color-scheme: dark) {
+    :root { --bg: #161619; --fg: #f4f4f5; --muted: #a1a1aa; --line: #34343a; --accent: #93b4ff; }
+  }
+  body {
+    margin: 0; padding: 40px 24px; background: var(--bg); color: var(--fg);
+    font: 14px/1.55 ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  }
+  main { max-width: 620px; margin: 0 auto; }
+  h1 { font-size: 20px; margin: 0 0 4px; }
+  p.lede { color: var(--muted); margin: 0 0 28px; }
+  h2 { font-size: 13px; text-transform: uppercase; letter-spacing: .06em; color: var(--muted); margin: 28px 0 10px; }
+  .row { display: flex; align-items: center; gap: 10px; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; margin-bottom: 6px; cursor: pointer; }
+  .row:hover { border-color: var(--accent); }
+  .row input { accent-color: var(--accent); }
+  .row .id { margin-left: auto; color: var(--muted); font-size: 12px; font-family: ui-monospace, monospace; }
+  .badge { font-size: 11px; padding: 1px 6px; border-radius: 999px; background: color-mix(in srgb, #22c55e 22%, transparent); color: #15803d; }
+  @media (prefers-color-scheme: dark) { .badge { color: #86efac; } }
+  input[type=url] { width: 100%; padding: 9px 12px; border: 1px solid var(--line); border-radius: 10px; background: transparent; color: inherit; font: inherit; }
+  .bar { display: flex; align-items: center; gap: 12px; margin-top: 28px; }
+  button { padding: 8px 16px; border: 1px solid var(--accent); border-radius: 10px; background: var(--accent); color: #fff; font: inherit; font-weight: 600; cursor: pointer; }
+  button.ghost { background: transparent; color: inherit; border-color: var(--line); font-weight: 400; }
+  #status { color: var(--muted); }
+  .note { color: var(--muted); font-size: 13px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<main>
+  <h1>Proofread</h1>
+  <p class="lede">Rewrites happen on this machine, through opencode. Nothing is sent anywhere else by the extension.</p>
+
+  <h2>Backend</h2>
+  <input type="url" id="backendUrl" placeholder="http://127.0.0.1:8799">
+  <p class="note" id="health">checking…</p>
+
+  <h2>Model</h2>
+  <div id="models"></div>
+
+  <h2>Menu items</h2>
+  <div id="actions"></div>
+
+  <div class="bar">
+    <button id="save">Save</button>
+    <button class="ghost" id="reload">Reload models</button>
+    <span id="status"></span>
+  </div>
+</main>
+<script src="shared.js"></script>
+<script src="options.js"></script>
+</body>
+</html>
